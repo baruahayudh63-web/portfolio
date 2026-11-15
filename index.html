@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website of Ayudh Baruah, first-year Civil Engineering student at IIT Gandhinagar interested in web development.">
+  <title>Ayudh Baruah | Personal Website</title>
+  
+  <!-- Google Fonts: Archivo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hero & Navigation Header -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="greeting">Hi, I'm</p>
+      <h1 class="hero-name">Ayudh Baruah</h1>
+
+      <!-- Civil Engineering Blueprint Dimension Line -->
+      <div class="dimension-line" aria-label="Dimension: Civil Engineering, IIT Gandhinagar">
+        <span class="dim-tick dim-tick-left" aria-hidden="true"></span>
+        <span class="dim-bar" aria-hidden="true"></span>
+        <span class="dim-label">Civil Engineering, IIT Gandhinagar</span>
+        <span class="dim-bar" aria-hidden="true"></span>
+        <span class="dim-tick dim-tick-right" aria-hidden="true"></span>
+      </div>
+
+      <p class="hero-intro">
+        First-year B.Tech student exploring web development and eager to build impactful digital solutions.
+      </p>
+
+      <nav class="hero-nav" aria-label="Main Navigation">
+        <a href="#about" class="nav-btn">About</a>
+        <a href="#skills" class="nav-btn">Skills</a>
+        <a href="#projects" class="nav-btn">Projects</a>
+        <a href="#contact" class="nav-btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="content-wrapper">
+    
+    <!-- About Me Section -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <span class="section-tag">01 // PROFILE</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="card about-card">
+        <p>
+          I'm a first-year <strong>B.Tech Civil Engineering student at IIT Gandhinagar</strong> with a keen interest in software and web development. I enjoy bridging analytical engineering problem-solving with creative coding.
+        </p>
+        <p>
+          Currently, I am expanding my foundational coding skills and actively <strong>looking to join a web development project</strong> where I can collaborate with teams, contribute meaningfully, and learn modern development practices.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <span class="section-tag">02 // SPECIFICATION</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+      </div>
+      <p class="section-subtitle">Core fundamentals and tools I'm actively working with:</p>
+      <div class="skills-grid">
+        <div class="skill-tag">
+          <span class="skill-name">HTML</span>
+          <span class="skill-badge badge-active">Core</span>
+        </div>
+        <div class="skill-tag">
+          <span class="skill-name">CSS</span>
+          <span class="skill-badge badge-active">Core</span>
+        </div>
+        <div class="skill-tag">
+          <span class="skill-name">Python</span>
+          <span class="skill-badge badge-active">Basics</span>
+        </div>
+        <div class="skill-tag">
+          <span class="skill-name">JavaScript</span>
+          <span class="skill-badge badge-learning">Learning</span>
+        </div>
+        <div class="skill-tag">
+          <span class="skill-name">Git & GitHub</span>
+          <span class="skill-badge badge-learning">Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <span class="section-tag">03 // BLUEPRINTS</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-list">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">EarthScience IITGN</h3>
+            <span class="project-status">1st Place • Capstone</span>
+          </div>
+          <p class="project-description">
+            A website built as a capstone project with two teammates at the start of our academic journey at IIT Gandhinagar. Our team ranked first among the first-year teams.
+          </p>
+          <div class="project-links">
+            <a href="https://baruahayudh63-web.github.io/earthscienceiitgn/" target="_blank" rel="noopener noreferrer" class="link-btn primary-link">
+              Visit site &rarr;
+            </a>
+            <a href="https://github.com/baruahayudh63-web/earthscienceiitgn" target="_blank" rel="noopener noreferrer" class="link-btn secondary-link">
+              View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">This website</h3>
+            <span class="project-status">Personal</span>
+          </div>
+          <p class="project-description">
+            My first personal site, built with plain HTML and CSS. Designed around a technical engineering blueprint theme.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <span class="section-tag">04 // CONNECT</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <p class="section-subtitle">
+        Feel free to reach out if you'd like to collaborate, discuss a project, or just say hello!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:baruahayudh@iitgn.ac.in" class="contact-btn">
+          <span class="contact-icon" aria-hidden="true">&#9993;</span>
+          baruahayudh@iitgn.ac.in
+        </a>
+        <a href="https://github.com/baruahayudh63-web" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span class="contact-icon" aria-hidden="true">&#128187;</span>
+          GitHub
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Ayudh Baruah</p>
+      <p class="footer-subtext">Designed with a civil engineering blueprint motif • Pure HTML &amp; CSS</p>
+    </div>
+  </footer>
+
+</body>
+</html>

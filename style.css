@@ -1,0 +1,498 @@
+/* ==========================================================================
+   1. CSS VARIABLES (DESIGN TOKENS)
+   ========================================================================== */
+:root {
+  /* Blueprint Color Palette */
+  --blueprint-blue: #163a5c;       /* Dominant blueprint background */
+  --blueprint-blue-light: #1f4e79; /* Hover state for blue buttons */
+  --paper-bg: #f4f7fa;             /* Light drafting paper background */
+  --dark-ink: #0e2438;             /* Deep ink color for text and borders */
+  --accent-yellow: #f2b705;        /* Construction/measurement accent yellow */
+  
+  /* Additional Functional Tints */
+  --card-bg: #ffffff;              /* Crisp white for cards and tags */
+  --text-muted: #4b6377;           /* Softer dark ink for subtitles */
+  --border-subtle: #d3dde6;        /* Subtle drafting guidelines */
+  --focus-ring: #f2b705;           /* Accessibility outline ring */
+  
+  /* Typography */
+  --font-main: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  
+  /* Layout Spacing */
+  --max-width: 760px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+}
+
+/* ==========================================================================
+   2. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling enabled by default for in-page navigation anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility: Disable smooth scrolling if user requested reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--paper-bg);
+  color: var(--dark-ink);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keyboard navigation accessibility focus outline */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   3. HERO SECTION (BLUEPRINT THEME)
+   ========================================================================== */
+.hero {
+  background-color: var(--blueprint-blue);
+  /* Technical blueprint grid pattern created with intersecting linear gradients */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+  color: #ffffff;
+  padding: 4rem 1.5rem 3.5rem;
+  border-bottom: 3px solid var(--accent-yellow);
+}
+
+.hero-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.greeting {
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+/* Civil Engineering Dimension Line Style */
+.dimension-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.25rem auto;
+  max-width: 520px;
+  color: var(--accent-yellow);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Horizontal line segments */
+.dim-bar {
+  flex: 1;
+  height: 2px;
+  background-color: var(--accent-yellow);
+  opacity: 0.85;
+}
+
+/* Vertical tick marks at each end of the dimension line */
+.dim-tick {
+  width: 2px;
+  height: 14px;
+  background-color: var(--accent-yellow);
+}
+
+.dim-label {
+  padding: 0 0.85rem;
+  white-space: nowrap;
+}
+
+.hero-intro {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 580px;
+  margin: 1.25rem auto 2rem;
+  line-height: 1.5;
+}
+
+/* Hero Navigation Buttons */
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: var(--accent-yellow);
+  color: var(--dark-ink);
+  border-color: var(--accent-yellow);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. MAIN CONTENT CONTAINER & SECTIONS
+   ========================================================================== */
+.content-wrapper {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  flex: 1;
+}
+
+.section {
+  margin-bottom: 3.5rem;
+}
+
+.section-header {
+  margin-bottom: 1.25rem;
+}
+
+/* Technical section numbering (e.g., 01 // PROFILE) */
+.section-tag {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  color: var(--dark-ink);
+  font-weight: 700;
+  border-bottom: 2px dashed var(--border-subtle);
+  padding-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Reusable General Card */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(14, 36, 56, 0.06);
+  border: 1px solid var(--border-subtle);
+}
+
+/* About Section Card */
+.about-card p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: var(--dark-ink);
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. SKILLS SECTION
+   ========================================================================== */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* Small white tags with an engineering accent yellow left border */
+.skill-tag {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--accent-yellow);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 1px 3px rgba(14, 36, 56, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(14, 36, 56, 0.1);
+}
+
+.skill-name {
+  font-weight: 600;
+  color: var(--dark-ink);
+  font-size: 0.95rem;
+}
+
+/* Badges indicating proficiency or learning status */
+.skill-badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.badge-active {
+  background-color: rgba(22, 58, 92, 0.08);
+  color: var(--blueprint-blue);
+}
+
+.badge-learning {
+  background-color: rgba(242, 183, 5, 0.2);
+  color: #8c6600;
+}
+
+/* ==========================================================================
+   6. PROJECTS SECTION
+   ========================================================================== */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Project cards with a blueprint blue left border */
+.project-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-left: 5px solid var(--blueprint-blue);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(14, 36, 56, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(14, 36, 56, 0.1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  color: var(--blueprint-blue);
+  font-weight: 700;
+}
+
+.project-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-yellow);
+  background-color: var(--blueprint-blue);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+}
+
+.project-description {
+  color: var(--dark-ink);
+  font-size: 0.98rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.55;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.primary-link {
+  background-color: var(--blueprint-blue);
+  color: #ffffff;
+  border: 1px solid var(--blueprint-blue);
+}
+
+.primary-link:hover {
+  background-color: var(--blueprint-blue-light);
+  border-color: var(--blueprint-blue-light);
+}
+
+.secondary-link {
+  background-color: transparent;
+  color: var(--blueprint-blue);
+  border: 1px solid var(--blueprint-blue);
+}
+
+.secondary-link:hover {
+  background-color: rgba(22, 58, 92, 0.06);
+}
+
+/* ==========================================================================
+   7. CONTACT SECTION
+   ========================================================================== */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* Outlined buttons for contact links */
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: transparent;
+  color: var(--blueprint-blue);
+  border: 2px solid var(--blueprint-blue);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all 0.2s ease;
+}
+
+.contact-btn:hover {
+  background-color: var(--blueprint-blue);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(22, 58, 92, 0.15);
+}
+
+.contact-icon {
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+.site-footer {
+  background-color: var(--dark-ink);
+  color: #ffffff;
+  padding: 2rem 1.5rem;
+  margin-top: auto;
+  border-top: 3px solid var(--blueprint-blue);
+  text-align: center;
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-content p {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.footer-subtext {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.35rem;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (MOBILE ADAPTATIONS)
+   ========================================================================== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 3rem 1rem 2.5rem;
+  }
+
+  .dimension-line {
+    font-size: 0.82rem;
+  }
+
+  .dim-label {
+    padding: 0 0.5rem;
+  }
+
+  .dim-bar {
+    min-width: 15px;
+  }
+
+  .hero-nav {
+    gap: 0.5rem;
+  }
+
+  .nav-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.82rem;
+  }
+
+  .content-wrapper {
+    padding: 2rem 1rem;
+  }
+
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
